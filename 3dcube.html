@@ -7,11 +7,13 @@
 		<style>	
 			body {
 				margin: 0px;
-				background-color: #f9f9f9;
+				background-color: #FFFFFF;
 				overflow: hidden;
 			}
 		</style>
 	</head>
+	
+	
 	<body>
 
 		<script src="https://preview.c9users.io/s1210153/test_3dcube/three.min.js" type="text/javascript"></script>
@@ -27,13 +29,14 @@
 				//カメラ
 				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
 				camera.position.z = 600;
+				camera.lookAt({x:0, y:0, z:0});
 				
 				
 				//シーン作成
 				scene = new THREE.Scene();
 				
 				var Light = new THREE.PointLight(0xFFFFFF, 1, 0, 0);
-				Light.position.set(800, 400, 800);
+				Light.position.set(400, 400, 800);
 				scene.add(Light);
 				
 				
@@ -53,7 +56,8 @@
 				//geometry.computeFaceNormals();
 				//geometry.computeVertexNormals();
 				
-				var material = new THREE.MeshPhongMaterial( { color: 0xff0000});//, wireframe: true } );
+				//var material = new THREE.MeshPhongMaterial( { color: 0xff00ff});//, wireframe: true } );
+				var material = new THREE.MeshNormalMaterial( { color: 0xff00ff});
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
 			
